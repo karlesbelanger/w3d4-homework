@@ -2,11 +2,14 @@ package com.example.simpledoublefragment;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LeftFragment.CallbackComponent {
 
     private static final String LEFT_FRAGMENT_TAG = "LEFT_FRAGMENT";
     private static final String RIGHT_FRAGMENT_TAG = "RIGHT_FRAGMENT";
+
+    private static final String TAG = "MainActivityTAG_";
 
     private LeftFragment mLeftFragment;
     private RightFragment mRightFragment;
@@ -26,5 +29,13 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.a_main_right, mRightFragment, RIGHT_FRAGMENT_TAG)
                 .commit();
 
+    }
+
+    @Override
+    public void buttonClicked(String name) {
+        Log.d(TAG, "buttonClicked: " + name);
+        if (mRightFragment != null && mRightFragment.isAdded()) {
+            mRightFragment.loadImage(name);
+        }
     }
 }

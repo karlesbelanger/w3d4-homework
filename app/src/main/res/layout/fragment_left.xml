@@ -12,11 +12,13 @@
         android:text="@string/hello_blank_fragment" />
 
     <Button
+        android:id="@+id/f_left_btne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Edwin" />
 
     <Button
+        android:id="@+id/f_left_btng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gaudencio" />
