@@ -5,9 +5,26 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String LEFT_FRAGMENT_TAG = "LEFT_FRAGMENT";
+    private static final String RIGHT_FRAGMENT_TAG = "RIGHT_FRAGMENT";
+
+    private LeftFragment mLeftFragment;
+    private RightFragment mRightFragment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mLeftFragment = new LeftFragment();
+        mRightFragment = new RightFragment();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.a_main_left, mLeftFragment, LEFT_FRAGMENT_TAG)
+                .add(R.id.a_main_right, mRightFragment, RIGHT_FRAGMENT_TAG)
+                .commit();
+
     }
 }
