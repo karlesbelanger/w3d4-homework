@@ -3,9 +3,14 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
+    <!--<fragment
         android:id="@+id/a_main_left"
         class="com.example.simpledoublefragment.Main_List"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>-->
+    <FrameLayout
+        android:id="@+id/a_main_left"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

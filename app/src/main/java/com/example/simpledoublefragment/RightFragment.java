@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.squareup.picasso.Picasso;
 
 
@@ -18,6 +20,18 @@ import com.squareup.picasso.Picasso;
 public class RightFragment extends Fragment {
 
     private ImageView mImageView;
+    private String[] imgArray = {
+            "http://static4.fjcdn.com/thumbnails/comments/Obligatory+response+gif+_5002e44dafbdf953942f75be2f4c510d.gif",
+            "http://static2.fjcdn.com/thumbnails/comments/Mandatory+boob+gif+_ff83e77a004a0322b8437254aa01b633.gif",
+            "https://media.giphy.com/media/E8wPnDQR5Ubi8/giphy.gif",
+            "https://media.giphy.com/media/HEGPEWesR1Ht6/giphy.gif",
+            "http://images.thehollywoodgossip.com/iu/s--zl3lxCy3--/t_full/f_auto,fl_lossy,q_75/v1406900721/hot-kate-upton-bikini-gif.gif",
+            "http://static4.fjcdn.com/thumbnails/comments/Obligatory+response+gif+_5002e44dafbdf953942f75be2f4c510d.gif",
+            "http://static2.fjcdn.com/thumbnails/comments/Mandatory+boob+gif+_ff83e77a004a0322b8437254aa01b633.gif",
+            "https://media.giphy.com/media/E8wPnDQR5Ubi8/giphy.gif",
+            "https://media.giphy.com/media/HEGPEWesR1Ht6/giphy.gif",
+            "http://images.thehollywoodgossip.com/iu/s--zl3lxCy3--/t_full/f_auto,fl_lossy,q_75/v1406900721/hot-kate-upton-bikini-gif.gif"
+    };
 
     public RightFragment() {
         // Required empty public constructor
@@ -37,11 +51,12 @@ public class RightFragment extends Fragment {
         mImageView = (ImageView) view.findViewById(R.id.f_right_img);
     }
 
-    public void loadImage(String name) {
-        String url = name.contains("Edwin")
-                ? "http://ichef-1.bbci.co.uk/news/660/cpsprodpb/025B/production/_85730600_monkey2.jpg"
-                : "http://kids.nationalgeographic.com/content/dam/kids/photos/animals/Mammals/H-P/pig-full-body.jpg.adapt.945.1.jpg";
-
-        Picasso.with(getContext()).load(url).into(mImageView);
+    public void loadImage(int n) {
+        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(mImageView);
+        Glide
+                .with(getContext())
+                .load(imgArray[n])
+                .into(imageViewTarget);
+        //Picasso.with(getContext()).load(url).into(mImageView);
     }
 }
